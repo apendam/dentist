@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  DENTIST
+  FRONT_DESK
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+model Tenant {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+
+  users        User[]
+  patients     Patient[]
+  appointments Appointment[]
+  auditLogs    AuditLog[]
+}
+
+model User {
+  id           String   @id @default(uuid())
+  tenantId     String
+  tenant       Tenant   @relation(fields: [tenantId], references: [id])
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(FRONT_DESK)
+  createdAt    DateTime @default(now())
+
+  dentistAppointments Appointment[] @relation("DentistAppointments")
+
+  @@index([tenantId])
+}
+
+model Patient {
+  id       String @id @default(uuid())
+  tenantId String
+  tenant   Tenant @relation(fields: [tenantId], references: [id])
+
+  firstName String
+  lastName  String
+  phone     String
+  email     String?
+  dob       DateTime?
+  address   String?
+
+  emergencyContactName  String?
+  emergencyContactPhone String?
+
+  // Sensitive health data — see README for encryption-at-rest plan.
+  medicalHistory String?
+
+  consentGiven   Boolean   @default(false)
+  consentGivenAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  appointments Appointment[]
+
+  @@index([tenantId, phone])
+  @@index([tenantId, lastName, firstName])
+}
+
+model Appointment {
+  id       String @id @default(uuid())
+  tenantId String
+  tenant   Tenant @relation(fields: [tenantId], references: [id])
+
+  patientId String
+  patient   Patient @relation(fields: [patientId], references: [id])
+
+  dentistId String
+  dentist   User   @relation("DentistAppointments", fields: [dentistId], references: [id])
+
+  scheduledAt     DateTime
+  durationMinutes Int               @default(30)
+  status          AppointmentStatus @default(SCHEDULED)
+  reason          String?
+  notes           String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId, scheduledAt])
+  @@index([tenantId, dentistId, scheduledAt])
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  tenantId   String
+  tenant     Tenant   @relation(fields: [tenantId], references: [id])
+  userId     String?
+  action     String
+  entityType String
+  entityId   String
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@index([tenantId, entityType, entityId])
+}
