@@ -12,6 +12,7 @@ const SEED_STAFF: StaffRow[] = [
   { id: 1, name: 'Dr. Anjali Verma', email: 'anjali@smiledental.test', role: 'ADMIN', status: 'Active' },
   { id: 2, name: 'Dr. Rohan Iyer', email: 'rohan@smiledental.test', role: 'DENTIST', status: 'Active' },
   { id: 3, name: 'Dr. Priya Nair', email: 'priya@smiledental.test', role: 'DENTIST', status: 'Active' },
+  { id: 6, name: 'Dr. Pallavi Desai', email: 'pallavi@smiledental.test', role: 'DENTIST', status: 'Active' },
   { id: 4, name: 'Sunita Pillai', email: 'sunita@smiledental.test', role: 'FRONT_DESK', status: 'Active' },
   { id: 5, name: 'Arjun Mehta', email: 'arjun@smiledental.test', role: 'FRONT_DESK', status: 'Inactive' },
 ];
@@ -154,9 +155,18 @@ export default function StaffManageMock() {
                 </td>
                 <td>{s.email}</td>
                 <td>
-                  <button type="button" className={`status-toggle ${s.status === 'Active' ? 'status-active' : 'status-inactive'}`} onClick={() => toggleStatus(s.id)}>
-                    <span className="status-dot" /> {s.status}
-                  </button>
+                  <div className="mac-switch-row">
+                    <button
+                      type="button"
+                      role="switch"
+                      aria-checked={s.status === 'Active'}
+                      className={`mac-switch ${s.status === 'Active' ? 'mac-switch-on' : ''}`}
+                      onClick={() => toggleStatus(s.id)}
+                    >
+                      <span className="mac-switch-knob" />
+                    </button>
+                    <span className={s.status === 'Active' ? 'status-active' : 'status-inactive'}>{s.status}</span>
+                  </div>
                 </td>
                 <td className="staff-actions">
                   {isEditing ? (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 interface Appt {
-  dentist: 'iyer' | 'verma';
+  dentist: 'iyer' | 'verma' | 'pallavi';
   startIdx: number;
   span: number;
   patient: string;
@@ -15,9 +15,10 @@ const TIMES = [
 const LUNCH_START = 8;
 const LUNCH_SPAN = 2;
 
-const DENTISTS: { key: 'iyer' | 'verma'; name: string }[] = [
+const DENTISTS: { key: 'iyer' | 'verma' | 'pallavi'; name: string }[] = [
   { key: 'iyer', name: 'Dr. Rohan Iyer' },
   { key: 'verma', name: 'Dr. Anjali Verma' },
+  { key: 'pallavi', name: 'Dr. Pallavi Desai' },
 ];
 
 const TYPE_STYLES: Record<string, { bg: string; border: string; text: string }> = {
@@ -45,6 +46,13 @@ const APPOINTMENTS: Appt[] = [
   { dentist: 'verma', startIdx: 10, span: 2, patient: 'Divya Menon', type: 'Root Canal' },
   { dentist: 'verma', startIdx: 13, span: 1, patient: 'Karan Malhotra', type: 'Cleaning' },
   { dentist: 'verma', startIdx: 15, span: 1, patient: 'Fatima Sheikh', type: 'Consultation' },
+
+  { dentist: 'pallavi', startIdx: 0, span: 1, patient: 'Ibrahim Sheikh', type: 'Cleaning' },
+  { dentist: 'pallavi', startIdx: 2, span: 1, patient: 'Ritu Chawla', type: 'Consultation' },
+  { dentist: 'pallavi', startIdx: 4, span: 2, patient: 'Owais Ahmed', type: 'Root Canal' },
+  { dentist: 'pallavi', startIdx: 7, span: 1, patient: 'Sneha Kulkarni', type: 'Filling' },
+  { dentist: 'pallavi', startIdx: 11, span: 1, patient: 'Aditya Rane', type: 'Crown / Bridge' },
+  { dentist: 'pallavi', startIdx: 14, span: 1, patient: 'Zara Khan', type: 'Extraction' },
 ];
 
 function findAppt(dentist: string, idx: number) {
@@ -82,7 +90,10 @@ export default function DayCalendarMock() {
 
       <div
         className="cal-grid"
-        style={{ gridTemplateRows: `44px repeat(${TIMES.length}, 56px)` }}
+        style={{
+          gridTemplateRows: `44px repeat(${TIMES.length}, 56px)`,
+          gridTemplateColumns: `90px repeat(${DENTISTS.length}, 1fr)`,
+        }}
       >
         <div className="cal-corner" style={{ gridColumn: 1, gridRow: 1 }} />
         {DENTISTS.map((d, ci) => (
@@ -127,11 +138,11 @@ export default function DayCalendarMock() {
                     gridColumn: col,
                     gridRow: `${idx + 2} / span ${appt.span}`,
                     background: style.bg,
-                    borderLeftColor: style.border,
                   }}
                 >
                   <span className="cal-appt-patient">{appt.patient}</span>
                   <span className="cal-appt-type" style={{ color: style.text }}>
+                    <span className="cal-dot" style={{ background: style.border }} />
                     {appt.type}
                   </span>
                 </div>

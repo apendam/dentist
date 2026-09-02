@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import MacWindow from '../components/MacWindow';
 
 export default function RegisterTenant() {
   const { registerTenant } = useAuth();
@@ -23,34 +24,36 @@ export default function RegisterTenant() {
   }
 
   return (
-    <div className="auth-page">
-      <form onSubmit={handleSubmit}>
-        <h2>Register your clinic</h2>
-        {error && <p className="error">{error}</p>}
-        <label>
-          Clinic name
-          <input value={clinicName} onChange={(e) => setClinicName(e.target.value)} required />
-        </label>
-        <label>
-          Your name
-          <input value={adminName} onChange={(e) => setAdminName(e.target.value)} required />
-        </label>
-        <label>
-          Email
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            minLength={8}
-            required
-          />
-        </label>
-        <button type="submit">Create clinic account</button>
-      </form>
-    </div>
+    <MacWindow title="Dentist CRM">
+      <div className="auth-page">
+        <form onSubmit={handleSubmit}>
+          <h2>Register your clinic</h2>
+          {error && <p className="error">{error}</p>}
+          <label>
+            Clinic name
+            <input value={clinicName} onChange={(e) => setClinicName(e.target.value)} required />
+          </label>
+          <label>
+            Your name
+            <input value={adminName} onChange={(e) => setAdminName(e.target.value)} required />
+          </label>
+          <label>
+            Email
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              minLength={8}
+              required
+            />
+          </label>
+          <button type="submit">Create clinic account</button>
+        </form>
+      </div>
+    </MacWindow>
   );
 }

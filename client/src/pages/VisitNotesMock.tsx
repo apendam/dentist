@@ -45,6 +45,7 @@ export default function VisitNotesMock() {
               <select value={form.dentist} onChange={(e) => setForm({ ...form, dentist: e.target.value })}>
                 <option>Dr. Rohan Iyer</option>
                 <option>Dr. Anjali Verma</option>
+                <option>Dr. Pallavi Desai</option>
               </select>
             </label>
             <label>
