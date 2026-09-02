@@ -294,3 +294,210 @@ dd {
   font-size: 0.85rem;
   margin: 0.15rem 0 0.4rem;
 }
+
+.sidebar-section {
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a93b8;
+}
+
+/* Day calendar mockup */
+.cal-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cal-datenav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cal-nav-btn {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cal-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: #444;
+}
+
+.cal-legend-swatch {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: 90px 1fr 1fr;
+  gap: 4px;
+  background: white;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.cal-corner {
+  background: transparent;
+}
+
+.cal-col-header {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #14213d;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+
+.cal-time {
+  font-size: 0.75rem;
+  color: #888;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.2rem;
+}
+
+.cal-cell {
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+
+.cal-open {
+  border: 1.5px dashed #d5d8e0;
+  color: #aab0c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-lunch {
+  background: #eee;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+}
+
+.cal-appt {
+  border-left: 4px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cal-appt-patient {
+  font-weight: 600;
+  color: #222;
+}
+
+.cal-appt-type {
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* Staff management mockup */
+.mock-add-staff {
+  margin-bottom: 1rem;
+}
+
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.role-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.status-toggle {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.status-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-active .status-dot {
+  background: #10b981;
+}
+
+.status-active {
+  color: #047857;
+}
+
+.status-inactive .status-dot {
+  background: #9ca3af;
+}
+
+.status-inactive {
+  color: #6b7280;
+}
+
+.staff-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #14213d;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.link-danger {
+  color: #b91c1c;
+}
+
+.confirm-text {
+  font-size: 0.82rem;
+  color: #b91c1c;
+}

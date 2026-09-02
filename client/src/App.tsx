@@ -9,6 +9,8 @@ import Appointments from './pages/Appointments';
 import Staff from './pages/Staff';
 import MedicalHistoryMock from './pages/MedicalHistoryMock';
 import VisitNotesMock from './pages/VisitNotesMock';
+import DayCalendarMock from './pages/DayCalendarMock';
+import StaffManageMock from './pages/StaffManageMock';
 import Layout from './components/Layout';
 
 function RequireAuth({ children }: { children: JSX.Element }) {
@@ -36,7 +38,9 @@ export default function App() {
         <Route path="patients/:id/history" element={<MedicalHistoryMock />} />
         <Route path="patients/:id/visits" element={<VisitNotesMock />} />
         <Route path="appointments" element={<Appointments />} />
+        <Route path="calendar-mock" element={<DayCalendarMock />} />
         <Route path="staff" element={<Staff />} />
+        <Route path="staff-manage-mock" element={<StaffManageMock />} />
       </Route>
     </Routes>
   );

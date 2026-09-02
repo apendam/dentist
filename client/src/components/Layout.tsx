@@ -11,6 +11,11 @@ export default function Layout() {
         <NavLink to="/patients">Patients</NavLink>
         <NavLink to="/appointments">Appointments</NavLink>
         {user?.role === 'ADMIN' && <NavLink to="/staff">Staff</NavLink>}
+
+        <div className="sidebar-section">Prototypes</div>
+        <NavLink to="/calendar-mock">Day Calendar</NavLink>
+        <NavLink to="/staff-manage-mock">Manage Staff</NavLink>
+
         <button onClick={logout}>Log out{user ? ` (${user.name})` : ''}</button>
       </nav>
       <main className="content">
