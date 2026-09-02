@@ -2,6 +2,41 @@
   color-scheme: light;
 }
 
+/*
+ * Self-hosted Inter — the standard open-source stand-in for San Francisco
+ * (same x-height/metrics family). Loaded as real font files so the UI
+ * renders identically everywhere, not just on real macOS where
+ * -apple-system would otherwise resolve to actual SF Pro.
+ */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body,
 #root {
@@ -10,10 +45,11 @@ body,
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
   font-size: 13.5px;
   color: #1d1d1f;
   background: radial-gradient(circle at 22% 18%, #7fb8ef 0%, #3f74b3 45%, #1c3a63 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -78,6 +114,7 @@ body {
   font-size: 13px;
   font-weight: 600;
   color: #3c3c43;
+  white-space: nowrap;
   pointer-events: none;
 }
 
@@ -119,6 +156,7 @@ body {
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .sidebar a:hover {
@@ -207,6 +245,7 @@ button[type='submit'] {
   font-weight: 500;
   font-family: inherit;
   display: inline-block;
+  white-space: nowrap;
 }
 
 .button:hover,
@@ -234,6 +273,7 @@ button[type='submit']:hover {
   border-radius: 999px;
   font-size: 11.5px;
   font-weight: 600;
+  white-space: nowrap;
   margin-bottom: 1rem;
 }
 
@@ -286,6 +326,7 @@ th {
   letter-spacing: 0.03em;
   color: #8e8e93;
   background: #fafafa;
+  white-space: nowrap;
 }
 
 tbody tr:hover {
@@ -373,6 +414,7 @@ dt {
   font-size: 11.5px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 dd {
@@ -434,6 +476,7 @@ dd {
   cursor: pointer;
   background: #f2f2f7;
   color: #3c3c43;
+  white-space: nowrap;
 }
 
 .chip-on {
@@ -546,6 +589,7 @@ dd {
   gap: 0.3rem;
   font-size: 0.78rem;
   color: #3c3c43;
+  white-space: nowrap;
 }
 
 .cal-legend-swatch {
@@ -575,6 +619,9 @@ dd {
   display: flex;
   align-items: center;
   padding-left: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cal-time {
@@ -583,6 +630,7 @@ dd {
   display: flex;
   align-items: flex-start;
   padding-top: 0.2rem;
+  white-space: nowrap;
 }
 
 .cal-cell {
@@ -598,6 +646,7 @@ dd {
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .cal-lunch {
@@ -618,6 +667,9 @@ dd {
 .cal-appt-patient {
   font-weight: 600;
   color: #1d1d1f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cal-appt-type {
@@ -625,6 +677,9 @@ dd {
   font-weight: 600;
   display: flex;
   align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cal-dot {
@@ -652,6 +707,8 @@ dd {
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .mac-switch-row {
@@ -697,12 +754,14 @@ dd {
   color: #248a3d;
   font-size: 0.85rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .status-inactive {
   color: #8e8e93;
   font-size: 0.85rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .staff-actions {
