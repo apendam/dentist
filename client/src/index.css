@@ -154,3 +154,143 @@ dt {
 dd {
   margin: 0;
 }
+
+.button-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button-outline {
+  background: white;
+  color: #14213d;
+  border: 1px solid #14213d;
+}
+
+.mock-badge {
+  display: inline-block;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffe69c;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.mock-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.mock-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.mock-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.mock-card textarea,
+.mock-card input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: #f5f6f8;
+}
+
+.chip-on {
+  background: #14213d;
+  color: white;
+  border-color: #14213d;
+}
+
+.consent-badge {
+  color: #1e7e34;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.mock-save {
+  margin-top: 1rem;
+  background: #14213d;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.visit-form-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid #e2e2e2;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.94rem;
+  top: 0.3rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #14213d;
+}
+
+.timeline-content {
+  background: white;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.timeline-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeline-date {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.timeline-meta {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0.15rem 0 0.4rem;
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { api } from '../api/client';
 import { Patient } from '../types';
 
@@ -15,9 +15,19 @@ export default function PatientDetail() {
 
   return (
     <div>
-      <h2>
-        {patient.firstName} {patient.lastName}
-      </h2>
+      <div className="page-header">
+        <h2>
+          {patient.firstName} {patient.lastName}
+        </h2>
+        <div className="button-row">
+          <Link to={`/patients/${id}/history`} className="button button-outline">
+            Medical & Dental History
+          </Link>
+          <Link to={`/patients/${id}/visits`} className="button button-outline">
+            Visit Notes
+          </Link>
+        </div>
+      </div>
       <dl>
         <dt>Phone</dt>
         <dd>{patient.phone}</dd>

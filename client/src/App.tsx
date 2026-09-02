@@ -7,6 +7,8 @@ import PatientForm from './pages/PatientForm';
 import PatientDetail from './pages/PatientDetail';
 import Appointments from './pages/Appointments';
 import Staff from './pages/Staff';
+import MedicalHistoryMock from './pages/MedicalHistoryMock';
+import VisitNotesMock from './pages/VisitNotesMock';
 import Layout from './components/Layout';
 
 function RequireAuth({ children }: { children: JSX.Element }) {
@@ -31,6 +33,8 @@ export default function App() {
         <Route path="patients" element={<PatientList />} />
         <Route path="patients/new" element={<PatientForm />} />
         <Route path="patients/:id" element={<PatientDetail />} />
+        <Route path="patients/:id/history" element={<MedicalHistoryMock />} />
+        <Route path="patients/:id/visits" element={<VisitNotesMock />} />
         <Route path="appointments" element={<Appointments />} />
         <Route path="staff" element={<Staff />} />
       </Route>
